@@ -3,6 +3,7 @@ from __future__ import division
 from __future__ import print_function
 
 import pickle
+import os
 import json
 import numpy as np
 import cv2
@@ -151,5 +152,7 @@ for SPLIT in SPLITS:
         print("# images: ", len(ret['images']))
         print("# annotations: ", len(ret['annotations']))
         # import pdb; pdb.set_trace()
-        out_path = '{}/annotations/kitti_{}_{}.json'.format(DATA_PATH, SPLIT, split)
+        if not os.path.exists('{}annotations'.format(DATA_PATH)):
+            os.makedirs('{}annotations'.format(DATA_PATH))
+        out_path = '{}annotations/kitti_{}_{}.json'.format(DATA_PATH, SPLIT, split)
         json.dump(ret, open(out_path, 'w'))
