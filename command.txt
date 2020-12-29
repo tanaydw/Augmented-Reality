@@ -20,3 +20,9 @@
 
 %cd /content/Augmented-Reality/src/tools/
 !python convert_kitti_to_coco.py
+
+%cd /content/Augmented-Reality/data/kitti
+!mkdir images
+!mkdir images/trainval
+!cp -RT training/image_2 images/trainval
+%cd /content/Augmented-Reality
