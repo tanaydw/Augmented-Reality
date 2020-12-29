@@ -13,8 +13,8 @@ class opts(object):
         self.parser = argparse.ArgumentParser()
 
         # basic experiment setting
-        self.parser.add_argument('--task', default='nuscenes-tracking,ddd',
-                                 help='kitti/nuscenes-ddd | kitti/nuscenes-tracking,ddd,')
+        self.parser.add_argument('--task', default='nuscenes_tracking_ddd',
+                                 help='kitti/nuscenes-ddd | kitti/nuscenes-tracking_ddd,')
         self.parser.add_argument('--dataset', default='kitti', help='kitti | nuscenes')
         self.parser.add_argument('--test_dataset', default='', help='kitti | nuscenes')
         self.parser.add_argument('--exp_id', default='default')
@@ -326,10 +326,10 @@ class opts(object):
 
     def init(self):
         default_dataset_info = {
-            'kitti-ddd': 'kitti',
-            'nuscenes-ddd': 'nuscenes',
-            'kitti-tracking,ddd': 'kitti',
-            'nuscenes-tracking,ddd': 'nuscenes',
+            'kitti_ddd': 'kitti',
+            'nuscenes_ddd': 'nuscenes',
+            'kitti_tracking_ddd': 'kitti',
+            'nuscenes_tracking_ddd': 'nuscenes',
             'custom': 'custom'
         }
         opt = self.parse()

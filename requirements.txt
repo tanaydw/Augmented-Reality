@@ -1,11 +1,11 @@
 opencv-python~=4.4.0.46
 Cython~=0.29.21
 numba~=0.52.0
-progress~=1.5
+progress
 matplotlib~=3.3.3
 easydict
 scipy~=1.5.4
-pyquaternion~=0.9.9
+pyquaternion
 pyyaml
 motmetrics~=1.2.0
 scikit-learn==0.22.2
