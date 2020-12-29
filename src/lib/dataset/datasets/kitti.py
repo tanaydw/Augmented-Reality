@@ -31,9 +31,9 @@ class KITTI(GenericDataset):
         if opt.trainval:
             split = 'trainval' if split == 'train' else 'test'
             img_dir = os.path.join(data_dir, 'images', split)
-            ann_path = os.path.join(data_dir, 'annotations', 'kitti_v2_{}.json').format(split)
+            ann_path = os.path.join(data_dir, 'annotations', 'kitti_{}.json').format(split)
         else:
-            ann_path = os.path.join(data_dir, 'annotations', 'kitti_v2_{}_{}.json').format(opt.kitti_split, split)
+            ann_path = os.path.join(data_dir, 'annotations', 'kitti_{}_{}.json').format(opt.kitti_split, split)
         self.images = None
         
         # load image list and coco
