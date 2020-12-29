@@ -15,7 +15,7 @@ class opts(object):
         # basic experiment setting
         self.parser.add_argument('--task', default='nuscenes-tracking,ddd',
                                  help='kitti/nuscenes-ddd | kitti/nuscenes-tracking,ddd,')
-        self.parser.add_argument('--dataset', default='nuscenes', help='kitti | nuscenes')
+        self.parser.add_argument('--dataset', default='kitti', help='kitti | nuscenes')
         self.parser.add_argument('--test_dataset', default='', help='kitti | nuscenes')
         self.parser.add_argument('--exp_id', default='default')
         self.parser.add_argument('--test', action='store_true')
