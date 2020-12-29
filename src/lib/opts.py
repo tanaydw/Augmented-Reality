@@ -27,7 +27,7 @@ class opts(object):
                                       '4: save all visualizations to disk')
         self.parser.add_argument('--no_pause', action='store_true')
         self.parser.add_argument('--demo', default='', help='path to image/ image folders/ video')
-        self.parser.add_argument('--load_model', default='/content/CenterTrack/models/nuScenes_3Dtracking.pth',
+        self.parser.add_argument('--load_model', default='/content/Augmented-Reality/models/nuScenes_3Dtracking.pth',
                                  help='path to pretrained model')
         self.parser.add_argument('--resume', action='store_true',
                                  help='resume an experiment. '
