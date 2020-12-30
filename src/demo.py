@@ -93,8 +93,8 @@ def main(opt):
         # save debug image to video
         if opt.save_video:
             out.write(ret['generic'])
-            if not is_video:
-                cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
+        if not is_video:
+            cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
 
         # esc to quit and finish saving video
         if cv2.waitKey(1) == 27:
