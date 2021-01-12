@@ -109,7 +109,7 @@ def main(opt):
 
 def save_and_exit(opt, out=None, results=None, out_name=''):
     if opt.save_results and (results is not None):
-        save_dir = '../results/{}_results.json'.format(opt.exp_id + '_' + out_name)
+        save_dir = 'results.json'
         print('saving results to', save_dir)
         json.dump(_to_list(copy.deepcopy(results)),
                   open(save_dir, 'w'))
