@@ -1,0 +1,28 @@
+!pip uninstall -y opencv-python-headless opencv-contrib-python
+!apt install python3-opencv  # the one pre-installed have some issues
+!pip install cython
+!pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
+!pip install motmetrics==1.1.3
+
+!git clone https://github.com/tanaydw/Augmented-Reality.git
+%cd /content/Augmented-Reality/
+!pip install -r requirements.txt
+%cd /content/Augmented-Reality/src/lib/model/networks/DCNv2
+!python setup.py build develop
+
+%cd /content/Augmented-Reality/data/kitti
+!wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_image_2.zip
+!unzip data_object_image_2.zip
+!wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_label_2.zip
+!unzip data_object_label_2.zip
+!wget  https://s3.eu-central-1.amazonaws.com/avg-kitti/data_object_calib.zip
+!unzip data_object_calib.zip
+
+%cd /content/Augmented-Reality/src/tools/
+!python convert_kitti_to_coco.py
+
+%cd /content/Augmented-Reality/data/kitti
+!mkdir images
+!mkdir images/trainval
+!cp -RT training/image_2 images/trainval
+%cd /content/Augmented-Reality
