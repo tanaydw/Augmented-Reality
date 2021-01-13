@@ -4,7 +4,7 @@ The goal of this project is to come up with a prototype of a **Driver Assistance
 
 This is achieved through fthe ollowing pipeline -
 
-<img src="Images/pipeline.png">
+<img src="Images/pipeline.PNG">
 
 Dashcam provides images to CenterTrack (Xingyi Zhou et.al.), which is a Deep Convolutional Neural Network that regresses on object's 6D-Pose (3D Bounding Box, Orientation), Category, and Score. A neural network which can regress on 6D-Pose rather than usual 2D bounding box was necessary for Augmented Reality (AR). CenterTrack was trained using Carla Simulator, which is an open source platform for training Autonomous Vehicles. For rendering virtual objects into real scene, Unity was used. Since Unity primarily supports Android, iOS  & UWP, rendering virutal objects from images based on dashcam required using Vuforia Engine, as it gives the flexibility to attach an External Camera & Pose Sensor for displaying information on heads-up display.
 
