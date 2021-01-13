@@ -162,12 +162,7 @@ class Detector(object):
                'pre': pre_time, 'net': net_time, 'dec': dec_time,
                'post': post_time, 'merge': merge_time, 'track': track_time,
                'display': display_time}
-        if self.opt.save_video:
-            try:
-                # return debug image for saving video
-                ret.update({'generic': self.debugger.imgs['generic']})
-            except:
-                pass
+        ret.update({'generic': self.debugger.imgs['generic']})
         return ret
 
     def _transform_scale(self, image, scale=1):

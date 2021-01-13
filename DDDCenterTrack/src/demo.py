@@ -45,15 +45,17 @@ def main(opt):
     out = None
     out_name = opt.demo[opt.demo.rfind('/') + 1:]
     print('out_name', out_name)
+    
     if opt.save_video:
         fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
         # fourcc = cv2.VideoWriter_fourcc(*'H264')
         out = cv2.VideoWriter('{}'.format(
-            opt.exp_id + '_' + out_name).replace('.mp4', '.avi'), fourcc, opt.save_framerate, (
-                                  opt.video_w, opt.video_h))
+            opt.exp_id + '_' + out_name).replace('.mp4', '.avi'), 
+            fourcc, opt.save_framerate, (opt.video_w, opt.video_h))
 
     if opt.debug < 5:
         detector.pause = False
+        
     cnt = 0
     results = {}
 
@@ -93,19 +95,21 @@ def main(opt):
         # save debug image to video
         if opt.save_video:
             out.write(ret['generic'])
-            if not is_video:
-                cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
+            
+        if not is_video:
+            cv2.imwrite('demo_{}.jpg'.format(cnt), ret['generic'])
 
         # esc to quit and finish saving video
         if cv2.waitKey(1) == 27:
             save_and_exit(opt, out, results, out_name)
             return
+        
     save_and_exit(opt, out, results)
 
 
 def save_and_exit(opt, out=None, results=None, out_name=''):
     if opt.save_results and (results is not None):
-        save_dir = '../results/{}_results.json'.format(opt.exp_id + '_' + out_name)
+        save_dir = 'results.json'
         print('saving results to', save_dir)
         json.dump(_to_list(copy.deepcopy(results)),
                   open(save_dir, 'w'))
